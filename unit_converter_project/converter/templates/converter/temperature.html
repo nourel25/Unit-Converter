@@ -1,0 +1,38 @@
+{% extends "converter/base.html" %}
+{% block content %}
+
+<div id="temperature-form" class="form-wrapper">
+    <h1 class="my-4">Temperature Converter</h1>
+    <form form method="post" class="form">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="value" class="form-label">Value</label>
+            <input type="number" class="form-control" id="value" name="value" placeholder="Enter value" required>
+        </div>
+        <div class="mb-3">
+            <label for="from_unit" class="form-label">From</label>
+            <select id="from_unit" name="from_unit" class="form-select">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="to_unit" class="form-label">To</label>
+            <select id="to_unit" name="to_unit" class="form-select">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Convert</button>
+    </form>
+    {% if result is not None %}
+    <div class="mt-4">
+        <h3>Converted Value:</h3>
+        <p>{{ result }}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

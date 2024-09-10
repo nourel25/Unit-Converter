@@ -21,4 +21,7 @@ from converter import views as converter_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', converter_views.home, name='home'),
+    path('lenght/', converter_views.length_converter, name='length-converter'),
+    path('weight/', converter_views.weight_converter, name='weight-converter'),
+    path('temperature/', converter_views.temperature_converter, name='temperature-converter'),
 ]

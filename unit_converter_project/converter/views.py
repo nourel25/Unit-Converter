@@ -1,7 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse('<h1>Home</h1>')
+    return render(request, 'converter/base.html')
 
+
+def length_converter(request):
+    return render(request, 'converter/length.html')
+
+def weight_converter(request):
+    return render(request, 'converter/weight.html')
+
+def temperature_converter(request):
+    return render(request, 'converter/temperature.html')
