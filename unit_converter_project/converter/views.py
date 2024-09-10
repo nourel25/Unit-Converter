@@ -6,10 +6,13 @@ def home(request):
 
 
 def length_converter(request):
-    return render(request, 'converter/length.html')
+    result = None
+    return render(request, 'converter/length.html', {'result': result})
 
 def weight_converter(request):
-    return render(request, 'converter/weight.html')
+    result = None
+    return render(request, 'converter/weight.html', {'result': result})
 
 def temperature_converter(request):
-    return render(request, 'converter/temperature.html')
+    result = None
+    return render(request, 'converter/temperature.html', {'result': result})
