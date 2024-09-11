@@ -11,13 +11,15 @@
         <h1>Unit Converter</h1>
 
         <div class="tabs">
-            <a class="tab-button" href="#">Length</a>
-            <a class="tab-button" href="#">Weight</a>
-            <a class="tab-button" href="#">Temperature</a>
+            <a class="tab-button" href="{% url 'length-converter' %}">Length</a>
+            <a class="tab-button" href="{% url 'weight-converter' %}">Weight</a>
+            <a class="tab-button" href="{% url 'temperature-converter' %}">Temperature</a>
         </div>
 
     </div>
-    {% block content %}{% endblock %}
+    <main role="main" class="container">
+        {% block content %}{% endblock %}
+      
     
 </body>
 </html>

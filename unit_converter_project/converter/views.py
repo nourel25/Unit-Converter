@@ -18,6 +18,7 @@ def convert_length(value, from_unit, to_unit):
     meters = value * units[from_unit]
     return meters / units[to_unit]
 
+
 def convert_weight(value, from_unit, to_unit):
     units = {
         'gram': 1,
@@ -26,6 +27,7 @@ def convert_weight(value, from_unit, to_unit):
     }
     grams = value * units[from_unit]
     return grams / units[to_unit]
+
 
 def convert_temperature(value, from_unit, to_unit):
     if from_unit == 'celsius':
@@ -51,12 +53,27 @@ def convert_temperature(value, from_unit, to_unit):
 
 def length_converter(request):
     result = None
+    if request.method == 'POST':
+        value = float(request.POST.get('value'))
+        from_unit = request.POST.get('from_unit')
+        to_unit = request.POST.get('to_unit')
+        result = convert_length(value, from_unit, to_unit)     
     return render(request, 'converter/length.html', {'result': result})
 
 def weight_converter(request):
     result = None
+    if request.method == 'POST':
+        value = float(request.POST.get('value'))
+        from_unit = request.POST.get('from_unit')
+        to_unit = request.POST.get('to_unit')
+        result = convert_weight(value, from_unit, to_unit) 
     return render(request, 'converter/weight.html', {'result': result})
 
 def temperature_converter(request):
     result = None
+    if request.method == 'POST':
+        value = float(request.POST.get('value'))
+        from_unit = request.POST.get('from_unit')
+        to_unit = request.POST.get('to_unit')
+        result = convert_temperature(value, from_unit, to_unit) 
     return render(request, 'converter/temperature.html', {'result': result})
